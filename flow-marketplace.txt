@@ -1,0 +1,21 @@
+1. LISTING MARKETPLACE:
+    - ADMIN LIST
+        - Need to mint first
+            - Could use mint or batchMint function in MintableToken contract
+            - Should use with cronjob for mint
+
+        - Listing
+            - Use Listing function of Marketplace smart contract
+
+    - USER LIST
+        - Use Listing function of Marketplace smart contract
+
+    - Need to approve NFT token before listing
+
+2. BUY:
+    - Use Buy function of Marketplace smart contract
+    - Need to approve ERC20 amount of token before buy
+
+3. Marketplace already emit event:
+    - event Listing, Unlisting, Purchase, PriceUpdated
+    - Should use BE to listen to these event for easily query later

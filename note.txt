@@ -1,0 +1,63 @@
+Ware (ERC20): 0x775c8194867B2B332F590F947eE6069665871E6e
+Rena (ERC20): 0x9Cdcdb9514Cf3856fBe20c27F937E8fa3546aC32
+MintableToken (ERC721): 0xB5bfF68D951938e156d67acc5f92a26de9505873
+Marketplace: 0x7B1ea33DDFd396b221754a41b95a7844ED6467F9
+
+Faucet: 0x2795E1f5B763DB10590D5FbFB57d7EB389cCA918
+
+MintableToken (ERC721):
+    + addWhitelister
+        + Input: user (address)
+        + Output: add user to whitelist
+            In whitelist, user can call mint, burn, batchMint
+
+    + mint
+        + Input: hash
+        + Output: NFT721
+
+    + batchMint:
+        + Input: 
+            + hash
+            + amount of NFT want to mint
+        + Output: List NFT721
+
+Marketplace:
+    * Could only use Ware Token for buy and sell thing in this * 
+    + listing:
+        + Input: 
+            + NFT Id
+            + Price (pass in wei, sample: 1 = 1000000000000000000)  
+                + https://eth-converter.com/
+        + Output:
+            + List this NFT to the Marketplace
+        + Warning: 
+            + Need to approve NFT first before call listing
+    + unlist:
+        + Input: NFT Id
+        + Output: Unlist NFT token if user call is owner
+
+    + buy:
+        + Input: NFT Id (NFT Id that you want to buy)
+        + Output: Buy that NFT
+        + Warning: 
+            + Need to approve Ware (ERC20) first before call listing
+    + updatePrice:
+        + Input: 
+            + NFT Id (NFT Id that you want to update price)
+            + price (the new price) (pass in wei, sample: 1 = 1000000000000000000)
+                + https://eth-converter.com/
+        + Output:
+            + Update price of that NFT if you are owner
+
+Faucet (for claim Rena token):
+    * Need to send Rena token to this address *
+    + claim
+        + Input: Nothing
+        + Output: Claim Rena token
+        + Warning: 1 address could only claim 1 time
+    + transferOut:
+        + Input:
+            + receiver: address (you want to transfer)
+            + amount: amount of Rena (you want to transfer)
+        + Output:
+            + Transfer out Rena token to address
